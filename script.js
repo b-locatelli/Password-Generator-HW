@@ -21,7 +21,9 @@ function generatePassword(){
   var letter = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@$%?*.";
   var num = "1234567890";
   passwordText = ""
+  for(var i = 0; i < length; i++) {
   passwordText = letter.charAt(Math.floor(Math.random() * letter.length))
+  }
   // passwordText = num.charAt(Math.floor(Math.random() * num.length))
   return passwordText
 };
