@@ -12,15 +12,16 @@ function generatePassword(){
     return;
   }
 
-  // if(!lower && !upper && !numb && !spec) {
-  //   alert("You must have a charcter.")
-  //   return
-  // }
-
   var lower = confirm("Would you like lowercase in your password?");
   var upper = confirm("Would you like uppercase in your Password?");
   var numb = confirm("Would you like numbers in your password?");
   var spec = confirm("Would you like special characters in you password?");
+
+  if(!lower && !upper && !numb && !spec) {
+    alert("You must have atleast 1 character type.")
+    return
+  }
+  
   var lowerLet = "abcdefghijklmnopqrstuvwxyz";
   var upperLet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   var specLet = "!@$%?*."
@@ -45,7 +46,7 @@ function generatePassword(){
   }
   
   for(var i = 0; i < length; i++) {
-  passwordText = conf.charAt(Math.floor(Math.random() * conf.length))
+  passwordText += conf.charAt(Math.floor(Math.random() * conf.length))
   }
   return passwordText
 };
