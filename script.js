@@ -8,13 +8,13 @@ function generatePassword(){
   // makes sure you pick a number no strings
   if(isNaN(length)) {
     alert("Must chose a number");
-    return;
+    return null;
   }
 
   // Declines numbers over 128 and under 8
   if(length < 8 || length > 128) {
     alert("Must choose a number between 8 and 128.")
-    return;
+    return null;
   }
 
   // asks the user what characters they want in their password
@@ -26,7 +26,7 @@ function generatePassword(){
   // makes sure atleast one character is chosen
   if(!lower && !upper && !numb && !spec) {
     alert("You must have atleast 1 character type.")
-    return
+    return null;
   }
 
   // my variables
