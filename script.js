@@ -36,6 +36,10 @@ function generatePassword(){
   var num = "1234567890";
   var conf = ""
   passwordText = ""
+  var hasLower = false
+  var hasUpper = false
+  var hasNum = false
+  var hasSpec = false
 
   // combines variables so all characters chosen can be used in the generated password
   if(lower) {
@@ -57,7 +61,44 @@ function generatePassword(){
   for(var i = 0; i < length; i++) {
   passwordText += conf.charAt(Math.floor(Math.random() * conf.length))
   }
+
+  if(lower) {
+    for(var i = 0; i < passwordText.length; i++) {
+    hasLower = lowerLet.split("").includes(passwordText[i])
+    if(hasLower === true)
+    break
+    }
+  }
+
+  if(upper) {
+    for(var i = 0; i < passwordText.length; i++) {
+    hasUpper = upperLet.split("").includes(passwordText[i])
+    if(hasUpper === true)
+    break
+    }
+  }
+
+  if(numb) {
+    for(var i = 0; i < passwordText.length; i++) {
+    hasNum = num.split("").includes(passwordText[i])
+    if(hasNum === true)
+    break
+    }
+  }
+
+  if(spec) {
+    for(var i = 0; i < passwordText.length; i++) {
+    hasSpec = specLet.split("").includes(passwordText[i])
+    if(hasSpec === true)
+    break
+    }
+  }
+
+  if((lower && !hasLower) || (upper && !hasUpper) || (numb && !hasNum) || (spec && !hasSpec)) {
+  return generatePassword() 
+  } else {
   return passwordText
+  }
 };
 
 // Write password to the #password input
