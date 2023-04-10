@@ -58,7 +58,7 @@ function generatePassword(){
     passwordText += specLet.charAt(Math.floor(Math.random() * specLet.length))
   }
   
-  for(var i = 1; i < length; i++) {
+  for(var i = passwordText.length; i < length; i++) {
   passwordText += conf.charAt(Math.floor(Math.random() * conf.length))
   }
   return passwordText
